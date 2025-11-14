@@ -43,6 +43,13 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
-    }
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "b31bfa8c-d5ef-4066-9dcf-52d6b09a4dbd"
+      }
+    },
+    "owner": "funbox-team"
   }
 }
