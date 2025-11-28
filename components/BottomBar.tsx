@@ -28,16 +28,16 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: '#67788C',
     borderTopWidth: 1,
-    borderColor: '#ddd',
+    borderColor: '#B1D9D9',
   },
   button: {
     padding: 10,
   },
   text: {
     fontSize: 14,
-    color: '#333',
+    color: '#F9C3C3',
     fontWeight: '600',
   },
 });
