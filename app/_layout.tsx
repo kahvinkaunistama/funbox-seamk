@@ -22,6 +22,6 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
-    paddingBottom: 70, // ettei sisältö mene palkin alle
+    paddingBottom: 0, // ettei sisältö mene palkin alle
   },
 });
