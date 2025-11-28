@@ -1,9 +1,13 @@
 import { StyleSheet, Text, View } from "react-native";
+import AddButton from "../components/AddButton";
 
 export default function Kirjat() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Tämä on sivu kirjoille.</Text>
+      <Text style={styles.title}>Tarkastele alta lukemiasi kirjoja:</Text>
+
+      <AddButton onPress={() => console.log("Clicked!")} />
     </View>
   );
 }

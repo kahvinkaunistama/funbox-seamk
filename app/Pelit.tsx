@@ -1,9 +1,13 @@
 import { StyleSheet, Text, View } from "react-native";
+import AddButton from "../components/AddButton";
 
 export default function Pelit() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Tämä on sivu peleille.</Text>
+      <Text style={styles.title}>Tarkastele alta pelaamiasi pelejä:</Text>
+
+      <AddButton onPress={() => console.log("Clicked!")} />
     </View>
   );
 }

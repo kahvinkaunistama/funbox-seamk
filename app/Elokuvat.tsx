@@ -1,9 +1,13 @@
 import { StyleSheet, Text, View } from "react-native";
+import AddButton from "../components/AddButton";
 
 export default function Elokuvat() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Tämä on sivu elokuville.</Text>
+      <Text style={styles.title}>Tarkastele alta katsomiasi elokuvia:</Text>
+
+      <AddButton onPress={() => console.log("Clicked!")} />
     </View>
   );
 }
