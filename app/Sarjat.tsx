@@ -1,10 +1,9 @@
 import { StyleSheet, Text, View } from "react-native";
 
-export default function Home() {
+export default function Sarjat() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>F U N B O X</Text>
-      <Text style={styles.title}>Tervetuloa sovellukseen!</Text>
+      <Text style={styles.title}>Tämä on sivu sarjoille.</Text>
     </View>
   );
 }
