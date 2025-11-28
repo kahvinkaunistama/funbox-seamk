@@ -15,7 +15,7 @@ export default function BottomBar() {
         <Text style={styles.text}>Elokuvat</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity style={[styles.button, { borderRightWidth: 0 }]}>
         <Text style={styles.text}>Pelit</Text>
       </TouchableOpacity>
     </View>
@@ -24,20 +24,30 @@ export default function BottomBar() {
 
 const styles = StyleSheet.create({
   container: {
-    height: 70,
+    height: 80,
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
-    backgroundColor: '#67788C',
-    borderTopWidth: 1,
-    borderColor: '#B1D9D9',
+    backgroundColor: '#DDDDE0',
+  // Android workaround:
+  borderTopWidth: 1,
+  borderTopColor: "rgba(0,0,0,0.15)",
   },
   button: {
-    padding: 10,
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+
+    // divider
+    borderRightWidth: 1,
+    borderRightColor: 'rgba(0,0,0,0.15)',
   },
   text: {
-    fontSize: 14,
-    color: '#F9C3C3',
+    fontSize: 16,
+    color: '#67788C',
     fontWeight: '600',
   },
 });
+
+
+
