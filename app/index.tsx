@@ -1,10 +1,10 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, } from "react-native";
 
 export default function Home() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>F U N B O X</Text>
-      <Text style={styles.title}>Tervetuloa sovellukseen!</Text>
+      <Text style={styles.header}>Funbox</Text>
+      <Text style={styles.text}>Your interests in one place.</Text>
     </View>
   );
 }
@@ -12,13 +12,24 @@ export default function Home() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
     backgroundColor: "#67788C",
+    paddingTop: 60,           // tilaa status barin yläpuolelle
+    paddingHorizontal: 16,
+    textAlign: "center",
   },
-  title: {
+  header: {
+    fontSize: 65,         // iso otsikko
+    fontWeight: "700",
+    color: "#F9C3C3",
+    marginBottom: 20,         // etäisyyttä seuraavaan tekstiin
+    textAlign: "center",
+    fontFamily: "cursive",
+  },
+  text: {
     fontSize: 22,
     fontWeight: "600",
     color: "#F9C3C3",
+    textAlign: "center",
+    fontFamily: "serif",
   },
 });

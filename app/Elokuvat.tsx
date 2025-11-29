@@ -6,8 +6,8 @@ import DefaultStyle from "../styles/DefaultStyle";
 export default function Elokuvat() {
   return (
     <View style={DefaultStyle.container}>
-      <Text style={DefaultStyle.title}>Tämä on sivu elokuville.</Text>
-      <Text style={DefaultStyle.title}>Tarkastele alta katsomiasi elokuvia:</Text>
+      <Text style={DefaultStyle.header}>Elokuvat</Text>
+      <Text style={DefaultStyle.text}>Tarkastele alta katsomiasi elokuvia</Text>
 
       <AddButton onPress={() => console.log("Add Clicked.")} />
       <HomeButton onPress={() => console.log("Home Clicked.")} />

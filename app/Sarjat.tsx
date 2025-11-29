@@ -6,8 +6,8 @@ import DefaultStyle from "../styles/DefaultStyle";
 export default function Sarjat() {
   return (
     <View style={DefaultStyle.container}>
-      <Text style={DefaultStyle.title}>Tämä on sivu sarjoille.</Text>
-      <Text style={DefaultStyle.title}>Tarkastele alta katsomiasi sarjoja:</Text>
+      <Text style={DefaultStyle.header}>Sarjat</Text>
+      <Text style={DefaultStyle.text}>Tarkastele alta katsomiasi sarjoja</Text>
 
       <AddButton onPress={() => console.log("Add Clicked.")} />
       <HomeButton onPress={() => console.log("Home Clicked.")} />

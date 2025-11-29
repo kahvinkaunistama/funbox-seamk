@@ -6,8 +6,8 @@ import DefaultStyle from "../styles/DefaultStyle";
 export default function Kirjat() {
   return (
     <View style={DefaultStyle.container}>
-      <Text style={DefaultStyle.title}>Tämä on sivu kirjoille.</Text>
-      <Text style={DefaultStyle.title}>Tarkastele alta lukemiasi kirjoja:</Text>
+      <Text style={DefaultStyle.header}>Kirjat</Text>
+      <Text style={DefaultStyle.text}>Tarkastele alta lukemiasi kirjoja</Text>
 
       <AddButton onPress={() => console.log("Add Clicked.")} />
       <HomeButton onPress={() => console.log("Home Clicked.")} />

@@ -6,7 +6,7 @@ type HomeButtonProps = {
   icon?: string; // voit lisätä tulevaisuudessa ikonikirjaston
 };
 
-export default function HomeButton({ onPress, icon = "H" }: HomeButtonProps) {
+export default function HomeButton({icon = "H" }: HomeButtonProps) {
   return (
     <Pressable style={styles.fab} onPress={() => { router.push("/");}}>
       <Text style={styles.fabText}>{icon}</Text>
