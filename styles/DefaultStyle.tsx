@@ -8,11 +8,6 @@ const globalStyles = StyleSheet.create({
     paddingHorizontal: 16,
     alignItems: "center",
   },
-  title: {
-    fontSize: 22,
-    fontWeight: "600",
-    color: "#F9C3C3",
-  },
     header: {
     fontSize: 45,             // iso otsikko
     fontWeight: "700",
@@ -27,6 +22,11 @@ const globalStyles = StyleSheet.create({
     color: "#F9C3C3",
     textAlign: "center",
     fontFamily: "serif",
+  },
+    title: {
+    fontSize: 22,
+    fontWeight: "600",
+    color: "#F9C3C3",
   },
 });
 
