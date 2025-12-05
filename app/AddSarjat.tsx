@@ -1,5 +1,6 @@
+import { router } from "expo-router";
 import { Text, View } from "react-native";
-import HomeButton from "../components/HomeButton";
+import BackButton from "../components/BackButton";
 import DefaultStyle from "../styles/DefaultStyle";
 
 export default function AddSarjat() {
@@ -10,7 +11,7 @@ export default function AddSarjat() {
       <Text style={DefaultStyle.text}>Vuosi</Text>
       <Text style={DefaultStyle.text}>Arvosana</Text>
 
-      <HomeButton onPress={() => console.log("Home Clicked.")} />
+      <BackButton onPress={() => router.push("/Sarjat")} />
     </View>
   );
 }
