@@ -1,3 +1,4 @@
+import { router } from "expo-router";
 import { Text, View } from "react-native";
 import AddButton from "../components/AddButton";
 import HomeButton from "../components/HomeButton";
@@ -9,7 +10,7 @@ export default function Pelit() {
       <Text style={DefaultStyle.header}>Pelit</Text>
       <Text style={DefaultStyle.text}>Tarkastele alta pelaamiasi pelejä</Text>
 
-      <AddButton onPress={() => console.log("Add Clicked.")} />
+      <AddButton onPress={() => router.push("/AddPelit")} />
       <HomeButton onPress={() => console.log("Home Clicked.")} />
     </View>
   );

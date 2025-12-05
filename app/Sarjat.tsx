@@ -1,3 +1,4 @@
+import { router } from "expo-router";
 import { Text, View } from "react-native";
 import AddButton from "../components/AddButton";
 import HomeButton from "../components/HomeButton";
@@ -9,7 +10,7 @@ export default function Sarjat() {
       <Text style={DefaultStyle.header}>Sarjat</Text>
       <Text style={DefaultStyle.text}>Tarkastele alta katsomiasi sarjoja</Text>
 
-      <AddButton onPress={() => console.log("Add Clicked.")} />
+      <AddButton onPress={() => router.push("/AddSarjat")} />
       <HomeButton onPress={() => console.log("Home Clicked.")} />
     </View>
   );
