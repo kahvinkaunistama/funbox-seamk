@@ -1,4 +1,3 @@
-import { router } from "expo-router";
 import { Pressable, StyleSheet, Text } from "react-native";
 
 type BackButtonProps = {
@@ -6,9 +5,9 @@ type BackButtonProps = {
   icon?: string; // voit lisätä tulevaisuudessa ikonikirjaston
 };
 
-export default function BackButton({icon = "<<<" }: BackButtonProps) {
+export default function BackButton({onPress, icon = "<<<" }: BackButtonProps) {
   return (
-    <Pressable style={styles.fab} onPress={() => { router.push("/");}}>
+    <Pressable style={styles.fab} onPress={onPress}>
       <Text style={styles.fabText}>{icon}</Text>
     </Pressable>
   );
