@@ -8,45 +8,50 @@ import DefaultStyle from "../styles/DefaultStyle";
 
 
 export default function AddKirjat() {
-  const [title, setTitle] = useState("");
+  const [kirja, setKirja] = useState("");
+  const [kirjailija, setKirjailija] = useState("")
+  const [vuosi, setVuosi] = useState("")
+  const [arvosana, setArvosana] = useState("")
+  const [onkoluettu, setOnkoluettu] = useState("")
+  const [viimeksiluettu, setViimeksiluettu] = useState("")
 
   return (
     <View style={DefaultStyle.container}>
       <Text style={DefaultStyle.header}>Lisää kirja</Text>
 
         <TextField
-        value={title}
-        onChangeText={setTitle}
+        value={kirja}
+        onChangeText={setKirja}
         placeholder="Kirjan nimi"
         />
 
         <TextField
-        value={title}
-        onChangeText={setTitle}
+        value={kirjailija}
+        onChangeText={setKirjailija}
         placeholder="Kirjailija"
         />
 
         <TextField
-        value={title}
-        onChangeText={setTitle}
+        value={vuosi}
+        onChangeText={setVuosi}
         placeholder="Vuosi"
         />
 
         <TextField
-        value={title}
-        onChangeText={setTitle}
+        value={arvosana}
+        onChangeText={setArvosana}
         placeholder="Arvosana (1-5)"
         />
 
         <TextField
-        value={title}
-        onChangeText={setTitle}
+        value={onkoluettu}
+        onChangeText={setOnkoluettu}
         placeholder="Luettu/ei luettu"
         />
 
         <TextField
-        value={title}
-        onChangeText={setTitle}
+        value={viimeksiluettu}
+        onChangeText={setViimeksiluettu}
         placeholder="Viimeksi luettu"
         />
 
