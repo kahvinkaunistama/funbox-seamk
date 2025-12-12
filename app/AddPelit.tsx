@@ -8,10 +8,14 @@ export default function AddPelit() {
     <View style={DefaultStyle.container}>
       <Text style={DefaultStyle.header}>Lisää Peli</Text>
       <Text style={DefaultStyle.text}>Pelin nimi</Text>
+      <Text style={DefaultStyle.text}>Valmistaja</Text>
       <Text style={DefaultStyle.text}>Vuosi</Text>
       <Text style={DefaultStyle.text}>Arvosana</Text>
+      <Text style={DefaultStyle.text}>Pelattu/ei pelattu</Text>
+      <Text style={DefaultStyle.text}>Viimeksi pelattu</Text>
+      
 
-      <BackButton onPress={() => router.push("/Elokuvat")} />
+      <BackButton onPress={() => router.push("/Pelit")} />
     </View>
   );
 }

@@ -7,9 +7,12 @@ export default function AddElokuvat() {
   return (
     <View style={DefaultStyle.container}>
       <Text style={DefaultStyle.header}>Lisää elokuva</Text>
-      <Text style={DefaultStyle.text}>ELokuvan nimi</Text>
+      <Text style={DefaultStyle.text}>Elokuvan nimi</Text>
+      <Text style={DefaultStyle.text}>Ohjaaja</Text>
       <Text style={DefaultStyle.text}>Vuosi</Text>
       <Text style={DefaultStyle.text}>Arvosana</Text>
+      <Text style={DefaultStyle.text}>Katsottu/ei katsottu</Text>
+      <Text style={DefaultStyle.text}>Viimeksi katsottu</Text>
 
       <BackButton onPress={() => router.push("/Elokuvat")} />
     </View>

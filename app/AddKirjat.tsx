@@ -11,6 +11,8 @@ export default function AddKirjat() {
       <Text style={DefaultStyle.text}>Kirjailija</Text>
       <Text style={DefaultStyle.text}>Vuosi</Text>
       <Text style={DefaultStyle.text}>Arvosana</Text>
+      <Text style={DefaultStyle.text}>Luettu/ei luettu</Text>
+      <Text style={DefaultStyle.text}>Viimeksi luettu</Text>
 
       <BackButton onPress={() => router.push("/Kirjat")} />
     </View>

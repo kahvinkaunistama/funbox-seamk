@@ -10,6 +10,8 @@ export default function AddSarjat() {
       <Text style={DefaultStyle.text}>Sarjan nimi</Text>
       <Text style={DefaultStyle.text}>Vuosi</Text>
       <Text style={DefaultStyle.text}>Arvosana</Text>
+      <Text style={DefaultStyle.text}>Katsottu/ei katsottu</Text>
+      <Text style={DefaultStyle.text}>Viimeksi katsottu</Text>
 
       <BackButton onPress={() => router.push("/Sarjat")} />
     </View>
