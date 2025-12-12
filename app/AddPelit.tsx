@@ -14,7 +14,6 @@ export default function AddPelit() {
       <Text style={DefaultStyle.text}>Pelattu/ei pelattu</Text>
       <Text style={DefaultStyle.text}>Viimeksi pelattu</Text>
       
-
       <BackButton onPress={() => router.push("/Pelit")} />
     </View>
   );
