@@ -5,13 +5,11 @@ import BackButton from "../components/BackButton";
 import TextField from "../components/TextField";
 import DefaultStyle from "../styles/DefaultStyle";
 
-
-
 export default function AddKirjat() {
   const [kirja, setKirja] = useState("");
   const [kirjailija, setKirjailija] = useState("")
-  const [vuosi, setVuosi] = useState("")
-  const [arvosana, setArvosana] = useState("")
+  const [vuosi1, setVuosi1] = useState("")
+  const [arvosana1, setArvosana1] = useState("")
   const [onkoluettu, setOnkoluettu] = useState("")
   const [viimeksiluettu, setViimeksiluettu] = useState("")
 
@@ -32,14 +30,14 @@ export default function AddKirjat() {
         />
 
         <TextField
-        value={vuosi}
-        onChangeText={setVuosi}
+        value={vuosi1}
+        onChangeText={setVuosi1}
         placeholder="Vuosi"
         />
 
         <TextField
-        value={arvosana}
-        onChangeText={setArvosana}
+        value={arvosana1}
+        onChangeText={setArvosana1}
         placeholder="Arvosana (1-5)"
         />
 
