@@ -10,7 +10,7 @@ export default function AddPelit() {
     const [valmistaja, setValmistaja] = useState("")
     const [vuosi4, setVuosi4] = useState("")
     const [arvosana4, setArvosana4] = useState("")
-    const [onkopelattu, setOnkoPelattu] = useState("")
+    const [onkopelattu, setOnkopelattu] = useState("")
     const [viimeksipelattu, setViimeksipelattu] = useState("")
 
   return (
@@ -42,7 +42,7 @@ export default function AddPelit() {
       
       <TextField
         value={onkopelattu}
-        onChangeText={setOnkoPelattu}
+        onChangeText={setOnkopelattu}
         placeholder="Pelattu/Ei pelattu"
         />
       
