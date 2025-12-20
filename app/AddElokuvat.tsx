@@ -2,6 +2,7 @@ import { router } from "expo-router";
 import { useState } from "react";
 import { Text, View } from "react-native";
 import BackButton from "../components/BackButton";
+import ButtonRow from "../components/ButtonRow";
 import TextField from "../components/TextField";
 import DefaultStyle from "../styles/DefaultStyle";
 
@@ -51,6 +52,19 @@ export default function AddElokuvat() {
           onChangeText={setViimeksikatsottu2}
           placeholder="Viimeksi katsottu"
           />
+
+        <ButtonRow
+        onAdd={() => console.log ("Lisätään elokuva")}
+        onClear={() => {
+          console.log ("Kentät tyhjennetty, elokuva")
+          setElokuva("");
+          setOhjaaja("");
+          setVuosi3("");
+          setArvosana3("");
+          setOnkokatsottu2("");
+          setViimeksikatsottu2("");
+        }}
+        />
 
       <BackButton onPress={() => router.push("/Elokuvat")} />
     </View>
