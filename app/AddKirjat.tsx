@@ -1,6 +1,7 @@
 import { router } from "expo-router";
 import { useState } from "react";
 import { Text, View } from "react-native";
+import AddPiece from "../components/AddPiece";
 import BackButton from "../components/BackButton";
 import TextField from "../components/TextField";
 import DefaultStyle from "../styles/DefaultStyle";
@@ -52,6 +53,9 @@ export default function AddKirjat() {
         onChangeText={setViimeksiluettu}
         placeholder="Viimeksi luettu"
         />
+
+        <AddPiece onPress={() => console.log("Lisätään:", kirja, kirjailija)} />
+
 
       <BackButton onPress={() => router.push("/Kirjat")} />
     </View>
