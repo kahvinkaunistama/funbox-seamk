@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     justifyContent:"center"
   },
   text: {
-    color: "#67788C", // tummanharmaa teksti
+    color: "#67788C", 
     fontSize: 16,
     fontWeight: "bold",
   },

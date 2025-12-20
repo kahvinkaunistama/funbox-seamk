@@ -57,7 +57,7 @@ export default function AddKirjat() {
         <ButtonRow
         onAdd={() => console.log ("Lisätään kirja")}
         onClear={() => {
-          console.log ("Kentät tyhjennetty")
+          console.log ("Kentät tyhjennetty, kirja")
           setKirja("");
           setKirjailija("");
           setVuosi1("");

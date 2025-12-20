@@ -2,6 +2,7 @@ import { router } from "expo-router";
 import { useState } from "react";
 import { Text, View } from "react-native";
 import BackButton from "../components/BackButton";
+import ButtonRow from "../components/ButtonRow";
 import TextField from "../components/TextField";
 import DefaultStyle from "../styles/DefaultStyle";
 
@@ -45,6 +46,18 @@ export default function AddSarjat() {
           onChangeText={setViimeksikatsottu1}
           placeholder="Viimeksi katsottu"
           />
+
+        <ButtonRow
+        onAdd={() => console.log ("Lisätään sarja")}
+        onClear={() => {
+          console.log ("Kentät tyhjennetty, sarja")
+          setSarja("");
+          setVuosi2("");
+          setArvosana2("");
+          setOnkokatsottu1("");
+          setViimeksikatsottu1("");
+        }}
+        />
 
       <BackButton onPress={() => router.push("/Sarjat")} />
     </View>

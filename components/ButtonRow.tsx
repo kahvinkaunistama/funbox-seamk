@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   button: {
-    flex: 1,            // tasalevyiset napit
-    marginHorizontal: 6, // nappien väli
+    flex: 1,                        // tasalevyiset napit
+    marginHorizontal: 6,            // nappien väli
   },
 });
