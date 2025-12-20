@@ -2,16 +2,16 @@ import { Pressable, StyleSheet, Text, ViewStyle } from "react-native";
 
 type Props = {
   onPress: () => void;
-  style?: ViewStyle | ViewStyle[];
+  style?: ViewStyle | ViewStyle[]; 
 };
 
-export default function AddPiece({ onPress, style }: Props) {
+export default function EmptyFields({ onPress, style }: Props) {
   return (
     <Pressable 
     style={({ pressed }) => [
         styles.button, style, pressed && styles.pressed ]}
         onPress={onPress}>
-    <Text style={styles.text}>Lisää</Text>
+    <Text style={styles.text}>Tyhjennä</Text>
     </Pressable>
   );
 }
@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#F9C3C3",
     borderRadius: 12,
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent:"center"
   },
   text: {
     color: "#67788C", // tummanharmaa teksti
