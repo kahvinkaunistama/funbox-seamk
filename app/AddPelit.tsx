@@ -2,6 +2,7 @@ import { router } from "expo-router";
 import { useState } from "react";
 import { Text, View } from "react-native";
 import BackButton from "../components/BackButton";
+import ButtonRow from "../components/ButtonRow";
 import TextField from "../components/TextField";
 import DefaultStyle from "../styles/DefaultStyle";
 
@@ -50,6 +51,19 @@ export default function AddPelit() {
         value={viimeksipelattu}
         onChangeText={setViimeksipelattu}
         placeholder="Viimeksi pelattu"
+        />
+
+<ButtonRow
+        onAdd={() => console.log ("Lisätään peli")}
+        onClear={() => {
+          console.log ("Kentät tyhjennetty, peli")
+          setPeli("");
+          setValmistaja("");
+          setVuosi4("");
+          setArvosana4("");
+          setOnkopelattu("");
+          setViimeksipelattu("");
+        }}
         />
       
       <BackButton onPress={() => router.push("/Pelit")} />
