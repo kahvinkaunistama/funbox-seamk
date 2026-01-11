@@ -1,7 +1,6 @@
 import { router } from "expo-router";
 import { Text, View } from "react-native";
 import AddButton from "../components/AddButton";
-import HomeButton from "../components/HomeButton";
 import DefaultStyle from "../styles/DefaultStyle";
 
 export default function Kirjat() {
@@ -11,7 +10,6 @@ export default function Kirjat() {
       <Text style={DefaultStyle.text}>Tarkastele alta lukemiasi kirjoja</Text>
 
       <AddButton onPress={() => router.push("/AddKirjat")} />
-      <HomeButton onPress={() => console.log("Home Clicked.")} />
     </View>
   );
 }
