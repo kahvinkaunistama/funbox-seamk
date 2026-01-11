@@ -1,58 +1,55 @@
-import { useRouter } from "expo-router";
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import BottomBarStyle from "@/styles/BottomBarStyle";
+import { usePathname, useRouter } from "expo-router";
+import { Pressable, Text, View } from 'react-native';
+import DefaultStyle from "../styles/DefaultStyle";
 
 export default function BottomBar() {
   const router = useRouter();
+  const pathname = usePathname();
+
+  const isActive = (route:string) => pathname === route;
 
   return (
-    <View style={styles.container}>
-      <TouchableOpacity style={styles.button} onPress={() => router.push("/Kirjat")}>
-        <Text style={styles.text}>Kirjat</Text>
-      </TouchableOpacity>
+    <View style={BottomBarStyle.container}>
+      <Pressable
+      onPress={() => router.push("/Kirjat")}
+      style={({ pressed}) => [
+        BottomBarStyle.button,
+        pressed && DefaultStyle.pressed,
+        isActive("/Kirjat") && DefaultStyle.active,  
+        ]} >
+        <Text style={BottomBarStyle.text}>Kirjat</Text>
+      </Pressable>
 
-      <TouchableOpacity style={styles.button} onPress={() => router.push("/Sarjat")}>
-        <Text style={styles.text}>Sarjat</Text>
-      </TouchableOpacity>
+      <Pressable
+      onPress={() => router.push("/Sarjat")}
+      style={({ pressed}) => [
+        BottomBarStyle.button,
+        pressed && DefaultStyle.pressed,
+        isActive("/Sarjat") && DefaultStyle.active,  
+        ]} >
+        <Text style={BottomBarStyle.text}>Sarjat</Text>
+      </Pressable>
 
-      <TouchableOpacity style={styles.button} onPress={() => router.push("/Elokuvat")}>
-        <Text style={styles.text}>Elokuvat</Text>
-      </TouchableOpacity>
+      <Pressable
+      onPress={() => router.push("/Elokuvat")}
+      style={({ pressed}) => [
+        BottomBarStyle.button,
+        pressed && DefaultStyle.pressed,
+        isActive("/Elokuvat") && DefaultStyle.active,  
+        ]} >
+        <Text style={BottomBarStyle.text}>Elokuvat</Text>
+      </Pressable>
 
-      <TouchableOpacity style={styles.button} onPress={() => router.push("/Pelit")}>
-        <Text style={styles.text}>Pelit</Text>
-      </TouchableOpacity>
+      <Pressable
+      onPress={() => router.push("/Pelit")}
+      style={({ pressed}) => [
+        BottomBarStyle.button,
+        pressed && DefaultStyle.pressed,
+        isActive("/Pelit") && DefaultStyle.active,  
+        ]} >
+        <Text style={BottomBarStyle.text}>Pelit</Text>
+      </Pressable>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    height: 80,
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    backgroundColor: '#DDDDE0',
-  // Android workaround:
-  borderTopWidth: 1,
-  borderTopColor: "rgba(0,0,0,0.15)",
-  },
-
-  button: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-
-    // divider
-    borderRightWidth: 1,
-    borderRightColor: 'rgba(0,0,0,0.15)',
-  },
-  
-  text: {
-    fontSize: 16,
-    color: '#67788C',
-    fontWeight: '600',
-  },
-});
-
-
-

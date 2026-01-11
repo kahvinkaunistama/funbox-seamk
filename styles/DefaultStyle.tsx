@@ -28,6 +28,14 @@ const globalStyles = StyleSheet.create({
     fontWeight: "600",
     color: "#F9C3C3",
   },
+
+    pressed: {
+    backgroundColor: "#CFCFD4", // hover / painettaessa (hieman tummempi)
+  },
+
+  active: {
+    backgroundColor: "#BFC0C6", // valittu (selvästi tummempi)
+  },
 });
 
 export default globalStyles;
