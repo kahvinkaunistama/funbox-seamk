@@ -13,7 +13,7 @@ export default function BottomBar() {
     <View style={BottomBarStyle.container}>
       <Pressable
       onPress={() => router.push("/Kirjat")}
-      style={({ pressed}) => [
+      style={({ pressed }) => [
         BottomBarStyle.button,
         pressed && DefaultStyle.pressed,
         isActive("/Kirjat") && DefaultStyle.active,  
@@ -23,7 +23,7 @@ export default function BottomBar() {
 
       <Pressable
       onPress={() => router.push("/Sarjat")}
-      style={({ pressed}) => [
+      style={({ pressed }) => [
         BottomBarStyle.button,
         pressed && DefaultStyle.pressed,
         isActive("/Sarjat") && DefaultStyle.active,  
@@ -33,7 +33,7 @@ export default function BottomBar() {
 
       <Pressable
       onPress={() => router.push("/Elokuvat")}
-      style={({ pressed}) => [
+      style={({ pressed }) => [
         BottomBarStyle.button,
         pressed && DefaultStyle.pressed,
         isActive("/Elokuvat") && DefaultStyle.active,  
