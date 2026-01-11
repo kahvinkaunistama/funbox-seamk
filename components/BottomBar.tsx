@@ -21,6 +21,8 @@ export default function BottomBar() {
         <Text style={BottomBarStyle.text}>Kirjat</Text>
       </Pressable>
 
+      <View style={BottomBarStyle.divider} />
+
       <Pressable
       onPress={() => router.push("/Sarjat")}
       style={({ pressed }) => [
@@ -31,6 +33,8 @@ export default function BottomBar() {
         <Text style={BottomBarStyle.text}>Sarjat</Text>
       </Pressable>
 
+      <View style={BottomBarStyle.divider} />
+
       <Pressable
       onPress={() => router.push("/Elokuvat")}
       style={({ pressed }) => [
@@ -40,6 +44,8 @@ export default function BottomBar() {
         ]} >
         <Text style={BottomBarStyle.text}>Elokuvat</Text>
       </Pressable>
+
+      <View style={BottomBarStyle.divider} />
 
       <Pressable
       onPress={() => router.push("/Pelit")}

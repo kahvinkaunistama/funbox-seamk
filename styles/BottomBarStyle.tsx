@@ -7,19 +7,23 @@ const BottomBarStyle = StyleSheet.create({
     justifyContent: 'space-around',
     alignItems: 'center',
     backgroundColor: '#DDDDE0',
-  // Android workaround:
-  borderTopWidth: 1,
-  borderTopColor: "rgba(0,0,0,0.15)",
+    borderTopWidth: 1,
+    borderTopColor: "rgba(0,0,0,0.15)",
   },
 
   button: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    height: 65,           // korkeus
+    borderRadius: 12,
+    marginHorizontal: 4,  // pieni etäisyys napin väliin
+  },
 
-    // divider
-    borderRightWidth: 1,
-    borderRightColor: 'rgba(0,0,0,0.15)',
+    divider: {
+    width: 1,
+    backgroundColor: 'rgba(0,0,0,0.15)',
+    height: '50%', // voit säätää, miten korkea divider on
   },
   
   text: {
