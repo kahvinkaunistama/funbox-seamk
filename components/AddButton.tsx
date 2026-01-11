@@ -1,12 +1,13 @@
-import { Pressable, Text } from "react-native";
+import { Entypo } from "@expo/vector-icons";
+import { Pressable } from "react-native";
 import AddButtonStyle from "../styles/AddButtonStyle";
 
 type AddButtonProps = {
   onPress: () => void;
-  icon?: string; // voit lisätä tulevaisuudessa ikonikirjaston
+  iconName?: keyof typeof Entypo.glyphMap; // voit lisätä tulevaisuudessa ikonikirjaston
 };
 
-export default function AddButton({ onPress, icon = "+" }: AddButtonProps) {
+export default function AddButton({ onPress, iconName = "plus" }: AddButtonProps) {
   return (
     <Pressable 
     onPress={onPress}
@@ -15,7 +16,7 @@ export default function AddButton({ onPress, icon = "+" }: AddButtonProps) {
     pressed && AddButtonStyle.pressed,
     ]}
     >
-      <Text style={AddButtonStyle.fabText}>{icon}</Text>
+      <Entypo name={iconName} size={36} color="#67788C" />
     </Pressable>
   );
 }

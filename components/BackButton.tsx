@@ -1,13 +1,14 @@
-import { Pressable, Text } from "react-native";
+import { Entypo } from "@expo/vector-icons";
+import { Pressable } from "react-native";
 import BackButtonStyles from "../styles/BackButtonStyles";
 import DefaultStyle from "../styles/DefaultStyle";
 
 type BackButtonProps = {
   onPress: () => void;
-  icon?: string; // voit lisätä tulevaisuudessa ikonikirjaston
+  iconName?: keyof typeof Entypo.glyphMap; // voit lisätä tulevaisuudessa ikonikirjaston
 };
 
-export default function BackButton({onPress, icon = "<<<" }: BackButtonProps) {
+export default function BackButton({onPress, iconName = "arrow-left" }: BackButtonProps) {
   return (
     <Pressable
       onPress={onPress}
@@ -16,7 +17,7 @@ export default function BackButton({onPress, icon = "<<<" }: BackButtonProps) {
         pressed && DefaultStyle.pressed,
       ]} >
       
-      <Text style={BackButtonStyles.fabText}>{icon}</Text>
+      <Entypo name={iconName} size={32} color="#67788C" />
     </Pressable>
   );
 }
