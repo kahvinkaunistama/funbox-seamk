@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 
 export default function Home() {
   return (
@@ -13,15 +13,15 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#67788C",
-    paddingTop: 60,           // tilaa status barin yläpuolelle
+    paddingTop: 60, // tilaa status barin yläpuolelle
     paddingHorizontal: 16,
     textAlign: "center",
   },
   header: {
-    fontSize: 65,         // iso otsikko
+    fontSize: 65, // iso otsikko
     fontWeight: "700",
     color: "#F9C3C3",
-    marginBottom: 20,         // etäisyyttä seuraavaan tekstiin
+    marginBottom: 20, // etäisyyttä seuraavaan tekstiin
     textAlign: "center",
     fontFamily: "cursive",
   },

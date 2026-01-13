@@ -39,6 +39,17 @@
             "backgroundColor": "#000000"
           }
         }
+      ],
+      [
+        "expo-sqlite",
+        {
+          "enableFTS": true,
+          "useSQLCipher": true,
+          "android": {
+            "enableFTS": false,
+            "useSQLCipher": false
+          }
+        }
       ]
     ],
     "experiments": {
