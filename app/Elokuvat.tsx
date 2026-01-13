@@ -2,6 +2,7 @@ import { router } from "expo-router";
 import { Text, View } from "react-native";
 import AddButton from "../components/AddButton";
 import DefaultStyle from "../styles/DefaultStyle";
+import HomeButton from "@/components/HomeButton";
 
 export default function Elokuvat() {
   return (
@@ -10,6 +11,7 @@ export default function Elokuvat() {
       <Text style={DefaultStyle.text}>Tarkastele alta katsomiasi elokuvia</Text>
 
       <AddButton onPress={() => router.push("/AddElokuvat")} />
+      <HomeButton />
     </View>
   );
 }
