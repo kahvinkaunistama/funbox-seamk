@@ -1,4 +1,5 @@
 import { router } from "expo-router";
+import * as SQLite from "expo-sqlite";
 import { useState } from "react";
 import { Text, View } from "react-native";
 import BackButton from "../components/BackButton";
@@ -7,57 +8,67 @@ import TextField from "../components/TextField";
 import DefaultStyle from "../styles/DefaultStyle";
 
 export default function AddSarjat() {
-  const [sarja, setSarja] = useState("");
-  const [vuosi2, setVuosi2] = useState("")
-  const [onkokatsottu1, setOnkokatsottu1] = useState("")
-  const [arvosana2, setArvosana2] = useState("")
-  const [viimeksikatsottu1, setViimeksikatsottu1] = useState("")
+  const [sarjaNimi, setSarjaNimi] = useState("");
+  const [vuosi, setVuosi] = useState("");
+  const [onkoKatsottu, setOnkoKatsottu] = useState("");
+  const [arvosana, setArvosana] = useState("");
+  const [viimeksiKatsottu, setViimeksiKatsottu] = useState("");
+
+  const db = SQLite.useSQLiteContext();
+
+  const handleSarjaAdd = async () => {
+    try {
+      await db.runAsync("INSERT INTO sarjat (nimi, vuosi) VALUES (?,?)", [
+        sarjaNimi,
+        vuosi,
+      ]);
+      console.log("Sarja lisätty!");
+    } catch (error) {
+      console.log("Virhe: ", error);
+    }
+  };
 
   return (
     <View style={DefaultStyle.container}>
       <Text style={DefaultStyle.header}>Lisää sarja</Text>
 
-        <TextField
-          value={sarja}
-          onChangeText={setSarja}
-          placeholder="Sarjan nimi"
-          />
-      
-        <TextField
-          value={vuosi2}
-          onChangeText={setVuosi2}
-          placeholder="Vuosi"
-          />
+      <TextField
+        value={sarjaNimi}
+        onChangeText={setSarjaNimi}
+        placeholder="Sarjan nimi"
+      />
 
-        <TextField
-          value={arvosana2}
-          onChangeText={setArvosana2}
-          placeholder="Arvosana (1-5)"
-          />
+      <TextField value={vuosi} onChangeText={setVuosi} placeholder="Vuosi" />
 
-        <TextField
-          value={onkokatsottu1}
-          onChangeText={setOnkokatsottu1}
-          placeholder="Katsottu/ei katsottu"
-          />
+      <TextField
+        value={arvosana}
+        onChangeText={setArvosana}
+        placeholder="Arvosana (1-10)"
+      />
 
-        <TextField
-          value={viimeksikatsottu1}
-          onChangeText={setViimeksikatsottu1}
-          placeholder="Viimeksi katsottu"
-          />
+      <TextField
+        value={onkoKatsottu}
+        onChangeText={setOnkoKatsottu}
+        placeholder="Katsottu/ei katsottu"
+      />
 
-        <ButtonRow
-        onAdd={() => console.log ("Lisätään sarja")}
+      <TextField
+        value={viimeksiKatsottu}
+        onChangeText={setViimeksiKatsottu}
+        placeholder="Viimeksi katsottu"
+      />
+
+      <ButtonRow
+        onAdd={handleSarjaAdd}
         onClear={() => {
-          console.log ("Kentät tyhjennetty, sarja")
-          setSarja("");
-          setVuosi2("");
-          setArvosana2("");
-          setOnkokatsottu1("");
-          setViimeksikatsottu1("");
+          console.log("Kentät tyhjennetty, sarja");
+          setSarjaNimi("");
+          setVuosi("");
+          setArvosana("");
+          setOnkoKatsottu("");
+          setViimeksiKatsottu("");
         }}
-        />
+      />
 
       <BackButton onPress={() => router.push("/Sarjat")} />
     </View>

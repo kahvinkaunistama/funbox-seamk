@@ -1,4 +1,5 @@
 import { router } from "expo-router";
+import * as SQLite from "expo-sqlite";
 import { useState } from "react";
 import { Text, View } from "react-native";
 import BackButton from "../components/BackButton";
@@ -7,66 +8,76 @@ import TextField from "../components/TextField";
 import DefaultStyle from "../styles/DefaultStyle";
 
 export default function AddKirjat() {
-  const [kirja, setKirja] = useState("");
-  const [kirjailija, setKirjailija] = useState("")
-  const [vuosi1, setVuosi1] = useState("")
-  const [arvosana1, setArvosana1] = useState("")
-  const [onkoluettu, setOnkoluettu] = useState("")
-  const [viimeksiluettu, setViimeksiluettu] = useState("")
+  const [kirjaNimi, setKirjaNimi] = useState("");
+  const [kirjailija, setKirjailija] = useState("");
+  const [vuosi, setVuosi] = useState("");
+  const [arvosana, setArvosana] = useState("");
+  const [onkoLuettu, setOnkoLuettu] = useState("");
+  const [viimeksiLuettu, setViimeksiLuettu] = useState("");
+
+  const db = SQLite.useSQLiteContext();
+
+  const handleKirjaAdd = async () => {
+    try {
+      await db.runAsync("INSERT INTO kirjat (nimi, kirjailija) VALUES (?,?)", [
+        kirjaNimi,
+        kirjailija,
+      ]);
+      console.log("Kirja lisätty!");
+    } catch (error) {
+      console.log("Virhe: ", error);
+    }
+  };
 
   return (
     <View style={DefaultStyle.container}>
       <Text style={DefaultStyle.header}>Lisää kirja</Text>
 
-        <TextField
-        value={kirja}
-        onChangeText={setKirja}
+      <TextField
+        value={kirjaNimi}
+        onChangeText={setKirjaNimi}
         placeholder="Kirjan nimi"
-        />
+      />
 
-        <TextField
+      <TextField
         value={kirjailija}
         onChangeText={setKirjailija}
         placeholder="Kirjailija"
-        />
+      />
 
-        <TextField
-        value={vuosi1}
-        onChangeText={setVuosi1}
-        placeholder="Vuosi"
-        />
+      <TextField value={vuosi} onChangeText={setVuosi} placeholder="Vuosi" />
 
-        <TextField
-        value={arvosana1}
-        onChangeText={setArvosana1}
-        placeholder="Arvosana (1-5)"
-        />
+      <TextField
+        value={arvosana}
+        onChangeText={setArvosana}
+        placeholder="Arvosana (1-10)"
+      />
 
-        <TextField
-        value={onkoluettu}
-        onChangeText={setOnkoluettu}
+      <TextField
+        value={onkoLuettu}
+        onChangeText={setOnkoLuettu}
         placeholder="Luettu/ei luettu"
-        />
+      />
 
-        <TextField
-        value={viimeksiluettu}
-        onChangeText={setViimeksiluettu}
+      <TextField
+        value={viimeksiLuettu}
+        onChangeText={setViimeksiLuettu}
         placeholder="Viimeksi luettu"
-        />
+      />
 
-        <ButtonRow
-        onAdd={() => console.log ("Lisätään kirja")}
+      <ButtonRow
+        onAdd={handleKirjaAdd}
         onClear={() => {
-          console.log ("Kentät tyhjennetty, kirja")
-          setKirja("");
+          console.log("Kentät tyhjennetty, kirja");
+          setKirjaNimi("");
           setKirjailija("");
-          setVuosi1("");
-          setArvosana1("");
-          setOnkoluettu("");
-          setViimeksiluettu("");
+          setVuosi("");
+          setArvosana("");
+          setOnkoLuettu("");
+          setViimeksiLuettu("");
         }}
-        />
-        
+      />
+
       <BackButton onPress={() => router.push("/Kirjat")} />
     </View>
   );

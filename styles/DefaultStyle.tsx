@@ -4,26 +4,26 @@ const globalStyles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#67788C",
-    paddingTop: 60,           // tilaa status barin yläpuolelle
+    paddingTop: 60, // tilaa status barin yläpuolelle
     paddingHorizontal: 16,
     alignItems: "center",
   },
-    header: {
-    fontSize: 45,             // iso otsikko
+  header: {
+    fontSize: 45, // iso otsikko
     fontWeight: "700",
     color: "#F9C3C3",
-    marginBottom: 20,         // etäisyyttä seuraavaan tekstiin
+    marginBottom: 20, // etäisyyttä seuraavaan tekstiin
     textAlign: "center",
     fontFamily: "cursive",
- },
-   text: {
+  },
+  text: {
     fontSize: 22,
     fontWeight: "600",
     color: "#F9C3C3",
     textAlign: "center",
     fontFamily: "serif",
   },
-    title: {
+  title: {
     fontSize: 22,
     fontWeight: "600",
     color: "#F9C3C3",
@@ -33,6 +33,13 @@ const globalStyles = StyleSheet.create({
   },
   active: {
     backgroundColor: "#BFC0C6", // valittu (selvästi tummempi)
+  },
+  scrollContainer: {
+    flex: 1,
+  },
+  scrollCContainer: {
+    flexGrow: 1,
+    width: "100%",
   },
 });
 

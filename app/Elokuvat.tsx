@@ -1,10 +1,10 @@
+import HomeButton from "@/components/HomeButton";
 import { router } from "expo-router";
-import { Text, View } from "react-native";
+import * as SQLite from "expo-sqlite";
 import { useEffect, useState } from "react";
+import { Text, View } from "react-native";
 import AddButton from "../components/AddButton";
 import DefaultStyle from "../styles/DefaultStyle";
-import HomeButton from "@/components/HomeButton";
-import * as SQLite from "expo-sqlite";
 
 export default function Elokuvat() {
   return (
@@ -18,28 +18,34 @@ export default function Elokuvat() {
   );
 }
 
-interface Movie {
-  name: string;
-  director: string;
+interface ElokuvatInt {
+  nimi: string;
+  ohjaaja: string;
+  vuosi: number;
+  arvosana: number;
+  onkoKatsottu: string;
+  viimeksiKatsottu: string;
 }
 
 export function Content() {
   const db = SQLite.useSQLiteContext();
-  const [movies, setMovies] = useState<Movie[]>([]);
+  const [elokuvat, setElokuvat] = useState<ElokuvatInt[]>([]);
 
   useEffect(() => {
     async function setup() {
-      const result = await db.getAllAsync<Movie>("SELECT * FROM movies");
-      setMovies(result);
+      const result = await db.getAllAsync<ElokuvatInt>(
+        "SELECT * FROM elokuvat",
+      );
+      setElokuvat(result);
     }
     setup();
   });
 
   return (
     <View>
-      {movies.map((movie, index) => (
+      {elokuvat.map((elokuva, index) => (
         <View key={index}>
-          <Text>{`${movie.name} - ${movie.director}`}</Text>
+          <Text>{`${elokuva.nimi} - ${elokuva.ohjaaja} - ${elokuva.vuosi} - ${elokuva.arvosana} - ${elokuva.onkoKatsottu} - ${elokuva.viimeksiKatsottu}`}</Text>
         </View>
       ))}
     </View>
