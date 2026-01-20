@@ -1,10 +1,17 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Image } from "react-native";
+import frontpagePictureStyle from "../styles/frontpagePictureStyle";
 
 export default function Home() {
   return (
     <View style={styles.container}>
       <Text style={styles.header}>Funbox</Text>
       <Text style={styles.text}>Your interests in one place.</Text>
+
+         <Image
+      source={require('../assets/images/frontpage.jpg')}
+      style={frontpagePictureStyle.place}
+      />
+      
     </View>
   );
 }
@@ -16,6 +23,7 @@ const styles = StyleSheet.create({
     paddingTop: 60, // tilaa status barin yläpuolelle
     paddingHorizontal: 16,
     textAlign: "center",
+    alignItems: 'center',
   },
   header: {
     fontSize: 65, // iso otsikko
