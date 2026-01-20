@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-const FrontPagePictyreStyle = StyleSheet.create({
+const FrontPagePictureStyle = StyleSheet.create({
     place: {
         width: 280,
         height: 480, 
@@ -10,4 +10,4 @@ const FrontPagePictyreStyle = StyleSheet.create({
     },
 });
 
-export default FrontPagePictyreStyle;
+export default FrontPagePictureStyle;
