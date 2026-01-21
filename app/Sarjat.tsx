@@ -43,8 +43,6 @@ export function Content() {
     <View>
       <View style={BoxStyles.listContainer}></View>
       {sarjat.map((sarja, index) => (
-        <View key={index}>
-          <Text>{`${sarja.nimi} - ${sarja.vuosi} - ${sarja.arvosana} - ${sarja.onkoKatsottu} - ${sarja.viimeksiKatsottu}`}</Text>
         <View key={index} style={BoxStyles.box}>
           <Text style={BoxStyles.title}>{sarja.nimi}</Text>
           <Text style={BoxStyles.author}>{sarja.vuosi}</Text>

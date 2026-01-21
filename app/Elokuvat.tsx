@@ -1,8 +1,10 @@
 import HomeButton from "@/components/HomeButton";
+import PieceCard from "@/components/PieceCard";
+import { Entypo } from "@expo/vector-icons";
 import { router } from "expo-router";
 import * as SQLite from "expo-sqlite";
 import { useEffect, useState } from "react";
-import { Text, View } from "react-native";
+import { Text, View, Pressable, ScrollView } from "react-native";
 import AddButton from "../components/AddButton";
 import DefaultStyle from "../styles/DefaultStyle";
 import BoxStyles from "../styles/BoxStyles";
@@ -20,6 +22,7 @@ export default function Elokuvat() {
 }
 
 interface ElokuvatInt {
+  id: number;
   nimi: string;
   ohjaaja: string;
   vuosi: number;
@@ -42,15 +45,27 @@ export function Content() {
     setup();
   });
 
+  const poista = async (index: number) => {
+    try {
+      await db.runAsync("DELETE FROM elokuvat WHERE id = (?)", index);
+      console.log("Poistettiin");
+    } catch (e) {
+      console.log("Virhe: ", e);
+    }
+  };
+
   return (
     <View>
-      <View style={BoxStyles.listContainer}></View>
-      {elokuvat.map((elokuva, index) => (
-        <View key={index} style={BoxStyles.box}>
-          <Text style={BoxStyles.title}>{elokuva.nimi}</Text>
-          <Text style={BoxStyles.author}>{elokuva.vuosi}</Text>
-        </View>
-      ))}
+      <ScrollView style={BoxStyles.listContainer}>
+        {elokuvat.map((elokuva, index) => (
+          <PieceCard
+            key={index}
+            text1={elokuva.nimi}
+            text2={elokuva.ohjaaja}
+            onPress={() => poista(elokuva.id)}
+          />
+        ))}
+      </ScrollView>
     </View>
   );
 }

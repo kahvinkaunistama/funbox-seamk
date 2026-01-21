@@ -7,11 +7,11 @@ type Props = {
 
 export default function AddPiece({ onPress, style }: Props) {
   return (
-    <Pressable 
-    style={({ pressed }) => [
-        styles.button, style, pressed && styles.pressed ]}
-        onPress={onPress}>
-    <Text style={styles.text}>Lisää</Text>
+    <Pressable
+      style={({ pressed }) => [styles.button, style, pressed && styles.pressed]}
+      onPress={onPress}
+    >
+      <Text style={styles.text}>Lisää</Text>
     </Pressable>
   );
 }
