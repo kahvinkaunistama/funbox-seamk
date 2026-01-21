@@ -6,23 +6,27 @@ import BackButton from "../components/BackButton";
 import ButtonRow from "../components/ButtonRow";
 import TextField from "../components/TextField";
 import DefaultStyle from "../styles/DefaultStyle";
+import YearField from "@/components/YearField";
+import RatingField from "@/components/RatingField";
+import PickerField from "@/components/PickerField";
+import DatePickerField from "@/components/DatePickerField";
 
 export default function AddKirjat() {
   const [kirjaNimi, setKirjaNimi] = useState("");
   const [kirjailija, setKirjailija] = useState("");
   const [vuosi, setVuosi] = useState("");
   const [arvosana, setArvosana] = useState("");
-  const [onkoLuettu, setOnkoLuettu] = useState("");
+  const [onkoLuettu, setOnkoLuettu] = useState("Ei");
   const [viimeksiLuettu, setViimeksiLuettu] = useState("");
 
   const db = SQLite.useSQLiteContext();
 
   const handleKirjaAdd = async () => {
     try {
-      await db.runAsync("INSERT INTO kirjat (nimi, kirjailija) VALUES (?,?)", [
-        kirjaNimi,
-        kirjailija,
-      ]);
+      await db.runAsync(
+        "INSERT INTO kirjat (nimi, kirjailija, vuosi, arvosana, onkoLuettu, viimeksiLuettu) VALUES (?,?,?,?,?,?)",
+        [kirjaNimi, kirjailija, vuosi, arvosana, onkoLuettu, viimeksiLuettu],
+      );
       console.log("Kirja lisätty!");
     } catch (error) {
       console.log("Virhe: ", error);
@@ -45,24 +49,21 @@ export default function AddKirjat() {
         placeholder="Kirjailija"
       />
 
-      <TextField value={vuosi} onChangeText={setVuosi} placeholder="Vuosi" />
+      <YearField onChange={setVuosi} value={vuosi} />
 
-      <TextField
-        value={arvosana}
-        onChangeText={setArvosana}
-        placeholder="Arvosana (1-10)"
-      />
+      <RatingField value={arvosana} onChange={setArvosana} />
 
-      <TextField
+      <PickerField
         value={onkoLuettu}
-        onChangeText={setOnkoLuettu}
-        placeholder="Luettu/ei luettu"
+        onChange={setOnkoLuettu}
+        text="Onko luettu?"
       />
 
-      <TextField
+      <DatePickerField
         value={viimeksiLuettu}
-        onChangeText={setViimeksiLuettu}
-        placeholder="Viimeksi luettu"
+        onChange={setViimeksiLuettu}
+        placeHolderText="Viimeksi luettu"
+        clearText={() => setViimeksiLuettu("")}
       />
 
       <ButtonRow
@@ -73,7 +74,7 @@ export default function AddKirjat() {
           setKirjailija("");
           setVuosi("");
           setArvosana("");
-          setOnkoLuettu("");
+          setOnkoLuettu("Ei");
           setViimeksiLuettu("");
         }}
       />

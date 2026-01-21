@@ -21,6 +21,9 @@ export default function Sarjat() {
 interface SarjaInt {
   nimi: string;
   vuosi: string;
+  arvosana: string;
+  onkoKatsottu: string;
+  viimeksiKatsottu: string;
 }
 
 export function Content() {
@@ -39,7 +42,7 @@ export function Content() {
     <View>
       {sarjat.map((sarja, index) => (
         <View key={index}>
-          <Text>{`${sarja.nimi} - ${sarja.vuosi}`}</Text>
+          <Text>{`${sarja.nimi} - ${sarja.vuosi} - ${sarja.arvosana} - ${sarja.onkoKatsottu} - ${sarja.viimeksiKatsottu}`}</Text>
         </View>
       ))}
     </View>

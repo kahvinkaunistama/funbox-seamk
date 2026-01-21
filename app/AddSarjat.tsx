@@ -6,11 +6,15 @@ import BackButton from "../components/BackButton";
 import ButtonRow from "../components/ButtonRow";
 import TextField from "../components/TextField";
 import DefaultStyle from "../styles/DefaultStyle";
+import PickerField from "@/components/PickerField";
+import YearField from "@/components/YearField";
+import RatingField from "@/components/RatingField";
+import DatePickerField from "@/components/DatePickerField";
 
 export default function AddSarjat() {
   const [sarjaNimi, setSarjaNimi] = useState("");
   const [vuosi, setVuosi] = useState("");
-  const [onkoKatsottu, setOnkoKatsottu] = useState("");
+  const [onkoKatsottu, setOnkoKatsottu] = useState("Ei");
   const [arvosana, setArvosana] = useState("");
   const [viimeksiKatsottu, setViimeksiKatsottu] = useState("");
 
@@ -18,10 +22,10 @@ export default function AddSarjat() {
 
   const handleSarjaAdd = async () => {
     try {
-      await db.runAsync("INSERT INTO sarjat (nimi, vuosi) VALUES (?,?)", [
-        sarjaNimi,
-        vuosi,
-      ]);
+      await db.runAsync(
+        "INSERT INTO sarjat (nimi, vuosi, onkoKatsottu, arvosana, viimeksiKatsottu) VALUES (?,?,?,?,?)",
+        [sarjaNimi, vuosi, onkoKatsottu, arvosana, viimeksiKatsottu],
+      );
       console.log("Sarja lisätty!");
     } catch (error) {
       console.log("Virhe: ", error);
@@ -38,24 +42,21 @@ export default function AddSarjat() {
         placeholder="Sarjan nimi"
       />
 
-      <TextField value={vuosi} onChangeText={setVuosi} placeholder="Vuosi" />
+      <YearField value={vuosi} onChange={setVuosi} />
 
-      <TextField
-        value={arvosana}
-        onChangeText={setArvosana}
-        placeholder="Arvosana (1-10)"
-      />
+      <RatingField value={arvosana} onChange={setArvosana} />
 
-      <TextField
+      <PickerField
         value={onkoKatsottu}
-        onChangeText={setOnkoKatsottu}
-        placeholder="Katsottu/ei katsottu"
+        onChange={setOnkoKatsottu}
+        text="Onko katsottu?"
       />
 
-      <TextField
+      <DatePickerField
         value={viimeksiKatsottu}
-        onChangeText={setViimeksiKatsottu}
-        placeholder="Viimeksi katsottu"
+        onChange={setViimeksiKatsottu}
+        placeHolderText="Viimeksi katsottu"
+        clearText={() => setViimeksiKatsottu("")}
       />
 
       <ButtonRow
@@ -65,7 +66,7 @@ export default function AddSarjat() {
           setSarjaNimi("");
           setVuosi("");
           setArvosana("");
-          setOnkoKatsottu("");
+          setOnkoKatsottu("Ei");
           setViimeksiKatsottu("");
         }}
       />

@@ -21,6 +21,10 @@ export default function Pelit() {
 interface PelitInt {
   nimi: string;
   valmistaja: string;
+  vuosi: string;
+  arvosana: string;
+  onkoPelattu: string;
+  viimeksiPelattu: string;
 }
 
 export function Content() {
@@ -39,7 +43,7 @@ export function Content() {
     <View>
       {pelit.map((peli, index) => (
         <View key={index}>
-          <Text>{`${peli.nimi} - ${peli.valmistaja}`}</Text>
+          <Text>{`${peli.nimi} - ${peli.valmistaja} - ${peli.vuosi} - ${peli.arvosana} - ${peli.onkoPelattu} - ${peli.viimeksiPelattu}`}</Text>
         </View>
       ))}
     </View>

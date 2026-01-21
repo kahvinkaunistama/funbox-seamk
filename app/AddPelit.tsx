@@ -16,17 +16,17 @@ export default function AddPelit() {
   const [valmistaja, setValmistaja] = useState("");
   const [vuosi, setVuosi] = useState("");
   const [arvosana, setArvosana] = useState("");
-  const [onkoPelattu, setOnkoPelattu] = useState("");
+  const [onkoPelattu, setOnkoPelattu] = useState("Ei");
   const [viimeksiPelattu, setViimeksiPelattu] = useState("");
 
   const db = SQLite.useSQLiteContext();
 
   const handlePeliAdd = async () => {
     try {
-      await db.runAsync("INSERT INTO pelit (nimi, valmistaja) VALUES (?,?)", [
-        peliNimi,
-        valmistaja,
-      ]);
+      await db.runAsync(
+        "INSERT INTO pelit (nimi, valmistaja, vuosi, arvosana, onkoPelattu, viimeksiPelattu) VALUES (?,?,?,?,?,?)",
+        [peliNimi, valmistaja, vuosi, arvosana, onkoPelattu, viimeksiPelattu],
+      );
       console.log("Peli lisätty!");
     } catch (error) {
       console.log("Virhe: ", error);
@@ -72,7 +72,7 @@ export default function AddPelit() {
           setValmistaja("");
           setVuosi("");
           setArvosana("");
-          setOnkoPelattu("");
+          setOnkoPelattu("Ei");
           setViimeksiPelattu("");
         }}
       />

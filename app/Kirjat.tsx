@@ -21,6 +21,10 @@ export default function Kirjat() {
 interface KirjatInt {
   nimi: string;
   kirjailija: string;
+  vuosi: string;
+  arvosana: string;
+  onkoLuettu: string;
+  viimeksiLuettu: string;
 }
 
 export function Content() {
@@ -39,7 +43,7 @@ export function Content() {
     <View>
       {kirjat.map((kirja, index) => (
         <View key={index}>
-          <Text>{`${kirja.nimi} - ${kirja.kirjailija}`}</Text>
+          <Text>{`${kirja.nimi} - ${kirja.kirjailija} - ${kirja.vuosi} - ${kirja.arvosana} - ${kirja.onkoLuettu} - ${kirja.viimeksiLuettu}`}</Text>
         </View>
       ))}
     </View>

@@ -4,7 +4,7 @@ import { StyleSheet, TextInput, View } from "react-native";
 // Tarvitaan, jotta TextField-komponentille voidaan määrittää vahvat tyypit.
 // Tämä auttaa TypeScriptiä varmistamaan, että komponentti saa oikeanlaiset propsit
 type YearFieldProps = {
-  value: string;
+  value: any;
   onChange: any;
 };
 
