@@ -12,9 +12,6 @@ export default function Home() {
       source={require('../assets/images/frontpage.jpg')}
       style={frontpagePictureStyle.place}
       />
-    
-    
-    
       </View>  
     </View>
   );

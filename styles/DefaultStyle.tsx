@@ -6,7 +6,6 @@ const globalStyles = StyleSheet.create({
     backgroundColor: "#67788C",
     paddingTop: 60, // tilaa status barin yläpuolelle
     paddingHorizontal: 16,
-    alignItems: "center",
   },
   header: {
     fontSize: 45, // iso otsikko
