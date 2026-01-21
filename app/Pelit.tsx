@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { Text, View } from "react-native";
 import AddButton from "../components/AddButton";
 import DefaultStyle from "../styles/DefaultStyle";
+import BoxStyles from "../styles/BoxStyles";
 
 export default function Pelit() {
   return (
@@ -41,9 +42,11 @@ export function Content() {
 
   return (
     <View>
+      <View style={BoxStyles.listContainer}></View>
       {pelit.map((peli, index) => (
-        <View key={index}>
-          <Text>{`${peli.nimi} - ${peli.valmistaja} - ${peli.vuosi} - ${peli.arvosana} - ${peli.onkoPelattu} - ${peli.viimeksiPelattu}`}</Text>
+        <View key={index} style={BoxStyles.box}>
+          <Text style={BoxStyles.title}>{peli.nimi}</Text>
+          <Text style={BoxStyles.author}>{peli.valmistaja}</Text>
         </View>
       ))}
     </View>

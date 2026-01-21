@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { Text, View } from "react-native";
 import AddButton from "../components/AddButton";
 import DefaultStyle from "../styles/DefaultStyle";
+import BoxStyles from "../styles/BoxStyles";
 
 export default function Sarjat() {
   return (
@@ -40,9 +41,13 @@ export function Content() {
 
   return (
     <View>
+      <View style={BoxStyles.listContainer}></View>
       {sarjat.map((sarja, index) => (
         <View key={index}>
           <Text>{`${sarja.nimi} - ${sarja.vuosi} - ${sarja.arvosana} - ${sarja.onkoKatsottu} - ${sarja.viimeksiKatsottu}`}</Text>
+        <View key={index} style={BoxStyles.box}>
+          <Text style={BoxStyles.title}>{sarja.nimi}</Text>
+          <Text style={BoxStyles.author}>{sarja.vuosi}</Text>
         </View>
       ))}
     </View>

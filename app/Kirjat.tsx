@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { Text, View } from "react-native";
 import AddButton from "../components/AddButton";
 import DefaultStyle from "../styles/DefaultStyle";
+import BoxStyles from "../styles/BoxStyles";
 
 export default function Kirjat() {
   return (
@@ -41,9 +42,11 @@ export function Content() {
 
   return (
     <View>
+      <View style={BoxStyles.listContainer}></View>
       {kirjat.map((kirja, index) => (
-        <View key={index}>
-          <Text>{`${kirja.nimi} - ${kirja.kirjailija} - ${kirja.vuosi} - ${kirja.arvosana} - ${kirja.onkoLuettu} - ${kirja.viimeksiLuettu}`}</Text>
+        <View key={index} style={BoxStyles.box}>
+          <Text style={BoxStyles.title}>{kirja.nimi}</Text>
+          <Text style={BoxStyles.author}>{kirja.kirjailija}</Text>
         </View>
       ))}
     </View>
