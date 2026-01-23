@@ -1,10 +1,9 @@
 import HomeButton from "@/components/HomeButton";
 import PieceCard from "@/components/PieceCard";
-import { Entypo } from "@expo/vector-icons";
 import { router } from "expo-router";
 import * as SQLite from "expo-sqlite";
 import { useEffect, useState } from "react";
-import { Text, View, Pressable, ScrollView } from "react-native";
+import { Text, View, ScrollView } from "react-native";
 import AddButton from "../components/AddButton";
 import DefaultStyle from "../styles/DefaultStyle";
 import BoxStyles from "../styles/BoxStyles";
@@ -45,9 +44,9 @@ export function Content() {
     setup();
   });
 
-  const poista = async (index: number) => {
+  const poista = async (id: number) => {
     try {
-      await db.runAsync("DELETE FROM elokuvat WHERE id = (?)", index);
+      await db.runAsync("DELETE FROM elokuvat WHERE id = (?)", id);
       console.log("Poistettiin");
     } catch (e) {
       console.log("Virhe: ", e);

@@ -3,7 +3,7 @@ import BoxStyles from "@/styles/BoxStyles";
 import DeleteButton from "./DeleteButton";
 
 type PieceCardProps = {
-  key: number;
+  key: any;
   text1: string;
   text2: string;
   onPress: () => void;
