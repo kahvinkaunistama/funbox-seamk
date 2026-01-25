@@ -42,6 +42,18 @@ export function Content() {
     setup();
   });
 
+  const teos = async (id: number) => {
+    try {
+      console.log("Yksittäiseen teokseen");
+      router.push({
+        pathname: "/SingleGame",
+        params: { id: id.toString() },
+      });
+    } catch (e) {
+      console.log("Virhe: ", e);
+    }
+  };
+
   const poista = async (id: number) => {
     try {
       await db.runAsync("DELETE FROM pelit WHERE id = (?)", id);
@@ -59,6 +71,7 @@ export function Content() {
           key={index}
           onPress={() => poista(peli.id)}
           text1={peli.nimi}
+          singlePiecePress={() => teos(peli.id)}
           text2={peli.valmistaja}
         />
       ))}

@@ -50,6 +50,18 @@ export function Content() {
     }
   };
 
+  const teos = async (id: number) => {
+    try {
+      console.log("Yksittäiseen teokseen");
+      router.push({
+        pathname: "/SingleShow",
+        params: { id: id.toString() },
+      });
+    } catch (e) {
+      console.log("Virhe: ", e);
+    }
+  };
+
   return (
     <View>
       <View style={BoxStyles.listContainer}></View>
@@ -59,6 +71,7 @@ export function Content() {
           onPress={() => poista(sarja.id)}
           text1={sarja.nimi}
           text2={sarja.vuosi.toString()}
+          singlePiecePress={() => teos(sarja.id)}
         />
       ))}
     </View>

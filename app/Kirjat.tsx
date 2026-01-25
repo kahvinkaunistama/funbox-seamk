@@ -51,6 +51,18 @@ export function Content() {
     }
   };
 
+  const teos = async (id: number) => {
+    try {
+      console.log("Yksittäiseen teokseen");
+      router.push({
+        pathname: "/SingleBook",
+        params: { id: id.toString() },
+      });
+    } catch (e) {
+      console.log("Virhe: ", e);
+    }
+  };
+
   return (
     <View>
       <View style={BoxStyles.listContainer}></View>
@@ -60,6 +72,7 @@ export function Content() {
           onPress={() => poista(kirja.id)}
           text1={kirja.nimi}
           text2={kirja.kirjailija}
+          singlePiecePress={() => teos(kirja.id)}
         />
       ))}
     </View>

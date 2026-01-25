@@ -53,6 +53,18 @@ export function Content() {
     }
   };
 
+  const teos = async (id: number) => {
+    try {
+      console.log("Yksittäiseen teokseen");
+      router.push({
+        pathname: "/SingleMovie",
+        params: { id: id.toString() },
+      });
+    } catch (e) {
+      console.log("Virhe: ", e);
+    }
+  };
+
   return (
     <View>
       <ScrollView style={BoxStyles.listContainer}>
@@ -62,6 +74,7 @@ export function Content() {
             text1={elokuva.nimi}
             text2={elokuva.ohjaaja}
             onPress={() => poista(elokuva.id)}
+            singlePiecePress={() => teos(elokuva.id)}
           />
         ))}
       </ScrollView>
