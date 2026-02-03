@@ -5,14 +5,14 @@ export default function Home() {
   return (
     <View style={styles.container}>
       <View style={styles.boxStyle}>
-      <Text style={styles.header}>Funbox</Text>
-      <Text style={styles.text}>Your interests in one place.</Text>
+        <Text style={styles.header}>Funbox</Text>
+        <Text style={styles.text}>Your interests in one place.</Text>
 
-      <Image
-      source={require('../assets/images/frontpage.jpg')}
-      style={frontpagePictureStyle.place}
-      />
-      </View>  
+        <Image
+          source={require("../assets/images/frontpage.jpg")}
+          style={frontpagePictureStyle.place}
+        />
+      </View>
     </View>
   );
 }
@@ -21,21 +21,24 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#67788C",
-    paddingTop: 30, // tilaa status barin yläpuolelle
+    paddingTop: "12%", // tilaa status barin yläpuolelle
+    paddingBottom: "5%", // tilaa status barin yläpuolelle
     paddingHorizontal: 16,
     textAlign: "center",
-    alignItems: 'center',
+    alignItems: "center",
   },
   header: {
     fontSize: 65, // iso otsikko
     fontWeight: "700",
     color: "#F9C3C3",
+    top: 40,
     marginBottom: 20, // etäisyyttä seuraavaan tekstiin
     textAlign: "center",
     fontFamily: "cursive",
   },
   text: {
     fontSize: 22,
+    top: 40,
     fontWeight: "600",
     color: "#F9C3C3",
     textAlign: "center",
@@ -44,10 +47,9 @@ const styles = StyleSheet.create({
   boxStyle: {
     alignItems: "center",
     width: 350,
-    height: 700,
+    height: "100%",
     borderColor: "#f5f1f164",
     borderRadius: 20,
     borderWidth: 5,
-  }
-
+  },
 });

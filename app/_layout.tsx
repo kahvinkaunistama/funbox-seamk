@@ -11,9 +11,8 @@ export default function Layout() {
         <SQLite.SQLiteProvider databaseName="funbox-testi1" onInit={initDb}>
           {/* Näyttöjen sisältö */}
           <View style={styles.content}>
-            <Stack />
+            <Stack screenOptions={{ headerShown: false }} />
           </View>
-
           {/* Alapalkki */}
           <BottomBar />
         </SQLite.SQLiteProvider>

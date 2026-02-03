@@ -10,6 +10,7 @@ import YearField from "@/components/YearField";
 import RatingField from "@/components/RatingField";
 import PickerField from "@/components/PickerField";
 import DatePickerField from "@/components/DatePickerField";
+import PopUpModal from "@/components/PopUpModal";
 
 export default function AddKirjat() {
   const [kirjaNimi, setKirjaNimi] = useState("");
@@ -18,8 +19,15 @@ export default function AddKirjat() {
   const [arvosana, setArvosana] = useState("");
   const [onkoLuettu, setOnkoLuettu] = useState("Ei");
   const [viimeksiLuettu, setViimeksiLuettu] = useState("");
+  const [modalVisible, setModalVisible] = useState(false);
 
   const db = SQLite.useSQLiteContext();
+
+  const modalAsync = async () => {
+    setModalVisible(true);
+    await new Promise((resolve) => setTimeout(resolve, 1500));
+    setModalVisible(false);
+  };
 
   const handleKirjaAdd = async () => {
     try {
@@ -27,14 +35,27 @@ export default function AddKirjat() {
         "INSERT INTO kirjat (nimi, kirjailija, vuosi, arvosana, onkoLuettu, viimeksiLuettu) VALUES (?,?,?,?,?,?)",
         [kirjaNimi, kirjailija, vuosi, arvosana, onkoLuettu, viimeksiLuettu],
       );
+      modalAsync();
       console.log("Kirja lisätty!");
     } catch (error) {
       console.log("Virhe: ", error);
     }
+    setKirjaNimi("");
+    setKirjailija("");
+    setVuosi("");
+    setArvosana("");
+    setOnkoLuettu("Ei");
+    setViimeksiLuettu("");
   };
 
   return (
     <View style={DefaultStyle.container}>
+      <PopUpModal
+        visible={modalVisible}
+        teksti="Kirja lisätty!"
+        onClose={() => setModalVisible(false)}
+      />
+
       <Text style={DefaultStyle.header}>Lisää kirja</Text>
 
       <TextField

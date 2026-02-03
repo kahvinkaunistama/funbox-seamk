@@ -2,7 +2,7 @@ import HomeButton from "@/components/HomeButton";
 import { router } from "expo-router";
 import * as SQLite from "expo-sqlite";
 import { useEffect, useState } from "react";
-import { Text, View } from "react-native";
+import { Text, View, ScrollView } from "react-native";
 import AddButton from "../components/AddButton";
 import DefaultStyle from "../styles/DefaultStyle";
 import BoxStyles from "../styles/BoxStyles";
@@ -65,16 +65,17 @@ export function Content() {
 
   return (
     <View>
-      <View style={BoxStyles.listContainer}></View>
-      {pelit.map((peli, index) => (
-        <PieceCard
-          key={index}
-          onPress={() => poista(peli.id)}
-          text1={peli.nimi}
-          singlePiecePress={() => teos(peli.id)}
-          text2={peli.valmistaja}
-        />
-      ))}
+      <ScrollView style={BoxStyles.listContainer}>
+        {pelit.map((peli, index) => (
+          <PieceCard
+            key={index}
+            onPress={() => poista(peli.id)}
+            text1={peli.nimi}
+            singlePiecePress={() => teos(peli.id)}
+            text2={peli.valmistaja}
+          />
+        ))}
+      </ScrollView>
     </View>
   );
 }

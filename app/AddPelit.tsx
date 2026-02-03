@@ -10,6 +10,7 @@ import BackButton from "../components/BackButton";
 import ButtonRow from "../components/ButtonRow";
 import TextField from "../components/TextField";
 import DefaultStyle from "../styles/DefaultStyle";
+import PopUpModal from "@/components/PopUpModal";
 
 export default function AddPelit() {
   const [peliNimi, setPeliNimi] = useState("");
@@ -18,8 +19,15 @@ export default function AddPelit() {
   const [arvosana, setArvosana] = useState("");
   const [onkoPelattu, setOnkoPelattu] = useState("Ei");
   const [viimeksiPelattu, setViimeksiPelattu] = useState("");
+  const [modalVisible, setModalVisible] = useState(false);
 
   const db = SQLite.useSQLiteContext();
+
+  const modalAsync = async () => {
+    setModalVisible(true);
+    await new Promise((resolve) => setTimeout(resolve, 1500));
+    setModalVisible(false);
+  };
 
   const handlePeliAdd = async () => {
     try {
@@ -28,13 +36,26 @@ export default function AddPelit() {
         [peliNimi, valmistaja, vuosi, arvosana, onkoPelattu, viimeksiPelattu],
       );
       console.log("Peli lisätty!");
+      modalAsync();
     } catch (error) {
       console.log("Virhe: ", error);
     }
+    setPeliNimi("");
+    setValmistaja("");
+    setVuosi("");
+    setArvosana("");
+    setOnkoPelattu("Ei");
+    setViimeksiPelattu("");
   };
 
   return (
     <View style={DefaultStyle.container}>
+      <PopUpModal
+        visible={modalVisible}
+        teksti="Peli lisätty!"
+        onClose={() => setModalVisible(false)}
+      />
+
       <Text style={DefaultStyle.header}>Lisää peli</Text>
       <TextField
         value={peliNimi}

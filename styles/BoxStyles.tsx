@@ -5,8 +5,8 @@ const BoxStyles = StyleSheet.create({
     width: "100%",
     alignSelf: "stretch",
     marginTop: 16,
+    marginBottom: 200,
   },
-
   box: {
     width: "100%",
     backgroundColor: "#f4e8e8",
@@ -29,13 +29,11 @@ const BoxStyles = StyleSheet.create({
 
   delete: {
     position: "absolute",
-    alignSelf: "flex-end",
+    top: "50%", // Adjust as needed
+    right: 15, // Adjust as needed
   },
 
   deleteColor: {
-    marginTop: 28,
-    marginRight: 15,
-    alignSelf: "center",
     color: "#d16c6e",
   },
 });
