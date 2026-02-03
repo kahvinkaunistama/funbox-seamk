@@ -18,7 +18,7 @@ export default function DatePickerField({
   placeHolderText,
   clearText,
 }: DatePickerProps) {
-  const [date, setDate] = useState(new Date(1598051730000));
+  const [date, setDate] = useState(new Date());
 
   const onChangeDate = (event: any, selectedDate: any) => {
     setDate(selectedDate);
